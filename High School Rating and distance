@@ -1,0 +1,19 @@
+--create high school database
+
+CREATE TABLE high_schools (id INTEGER PRIMARY KEY, name TEXT, miles_away INTEGER, school_rating INTEGER);
+
+INSERT INTO high_schools VALUES (1, "North Stafford", 10, 3);
+INSERT INTO high_schools VALUES (2, "South Stafford", 4, 7);
+INSERT INTO high_schools VALUES (3, "Bellmont", 35, 10);
+INSERT INTO high_schools VALUES (4, "District", 100, 6);
+INSERT INTO high_schools VALUES (5, "Carroll Wide", 75, 1);
+
+--display the database ordered by school name and organize by the school rating number
+SELECT * FROM high_schools;
+SELECT * FROM high_schools WHERE school_rating > 5;
+SELECT * FROM high_schools WHERE school_rating > 5 ORDER BY school_rating;
+
+--total distance away
+SELECT sum(miles_away) FROM high_schools;
+SELECT sum(miles_away) FROM high_schools GROUP BY school_rating;
+SELECT school_rating, sum(miles_away) FROM high_schools GROUP BY school_rating;
